@@ -1,1 +1,101 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>遥控割草机产品总览</title>
+<style>
+  body { font-family: Arial, sans-serif; background: #f9f9f9; padding: 20px; }
+  h1 { text-align: center; color: #333; }
+  .product-list {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    max-width: 960px;
+    margin: 20px auto;
+  }
+  .product-row {
+    display: grid;
+    gap: 20px;
+  }
+  .row-3 {
+    grid-template-columns: repeat(3, 1fr);
+  }
+  .row-2 {
+    grid-template-columns: repeat(2, 1fr);
+    justify-content: center;
+  }
+  .product-item {
+    background: #fff;
+    border-radius: 8px;
+    padding: 10px;
+    box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+    text-align: center;
+    cursor: pointer;
+    transition: transform 0.2s ease;
+  }
+  .product-item:hover {
+    transform: scale(1.05);
+  }
+  .product-item img {
+    width: 100%;
+    height: 180px;
+    object-fit: contain;
+    border-radius: 6px;
+  }
+  .product-name {
+    margin-top: 12px;
+    font-weight: bold;
+    font-size: 18px;
+    color: #007BFF;
+  }
+
+  /* 手机端：全部改成一列，方便上下滑动 */
+  @media (max-width: 768px) {
+    .row-3, .row-2 {
+      grid-template-columns: 1fr; /* 单列 */
+    }
+    .product-item img {
+      height: auto; /* 高度自动适应屏幕 */
+    }
+  }
+</style>
+</head>
+<body>
+
+<h1>遥控割草机产品总览</h1>
+
+<div class="product-list">
+  <!-- 第一行 3 个 -->
+  <div class="product-row row-3">
+    <div class="product-item" onclick="location.href='u1.html'">
+      <img src="A1.jpg" alt="遥控割草机A" />
+      <div class="product-name">7.5马力</div>
+    </div>
+    <div class="product-item" onclick="location.href='U2.html'">
+      <img src="B1.jpg" alt="遥控割草机B" />
+      <div class="product-name">9马力</div>
+    </div>
+    <div class="product-item" onclick="location.href='U3.html'">
+      <img src="C1.jpg" alt="遥控割草机C" />
+      <div class="product-name">16马力</div>
+    </div>
+  </div>
+
+  <!-- 第二行 2 个 -->
+  <div class="product-row row-2">
+    <div class="product-item" onclick="location.href='U4.html'">
+      <img src="D1.jpg" alt="遥控割草机D" />
+      <div class="product-name">22马力</div>
+    </div>
+    <div class="product-item" onclick="location.href='U5.html'">
+      <img src="E1.jpg" alt="遥控割草机E" />
+      <div class="product-name">27马力</div>
+    </div>
+  </div>
+</div>
+
+</body>
+</html>
+
 
