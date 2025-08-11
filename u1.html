@@ -1,9 +1,9 @@
 <!DOCTYPE html>
 <html lang="zh">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>遥控割草机 - 三档型号介绍</title>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>遥控割草机 - 三档型号介绍（点击图片弹视频）</title>
 <style>
   body {
     font-family: Arial, sans-serif;
@@ -29,6 +29,7 @@
     margin-bottom: 20px;
     padding: 20px;
     gap: 20px;
+    cursor: pointer;
   }
   .product img {
     width: 280px;
@@ -59,6 +60,7 @@
     text-decoration: none;
     border-radius: 6px;
     transition: background 0.3s ease;
+    text-align: center;
   }
   .back-button:hover {
     background: #0056b3;
@@ -78,18 +80,54 @@
       text-align: left;
     }
   }
+
+  /* 弹窗样式 */
+  #videoModal {
+    display: none; /* 默认隐藏 */
+    position: fixed;
+    top: 0; left: 0; right: 0; bottom: 0;
+    background: rgba(0,0,0,0.7);
+    justify-content: center;
+    align-items: center;
+    z-index: 1000;
+  }
+  #videoModal.active {
+    display: flex;
+  }
+  #videoModal video {
+    max-width: 90%;
+    max-height: 80%;
+    border-radius: 8px;
+    box-shadow: 0 0 15px rgba(0,0,0,0.5);
+    background: #000;
+  }
+  #videoModal .close-btn {
+    position: absolute;
+    top: 30px;
+    right: 30px;
+    font-size: 30px;
+    color: white;
+    cursor: pointer;
+    font-weight: bold;
+    background: rgba(0,0,0,0.5);
+    border-radius: 50%;
+    width: 40px;
+    height: 40px;
+    line-height: 40px;
+    text-align: center;
+  }
 </style>
 </head>
 <body>
 
 <div class="container">
-  <h1>遥控割草机 三种型号介绍</h1>
+  <h1>遥控割草机 两种型号介绍</h1>
 
   <!-- 高等型号 -->
-  <div class="product">
+  <div class="product" onclick="openVideo('video1.mp4')">
     <img src="B1.jpg" alt="高等型号">
     <div class="product-info">
-      <h2>高等型号</h2>
+      <h2>MEDIUM VERSION-ALTORNATOR</h2>
       <ul>
         <li>20马力高性能发动机</li>
         <li>刀盘高度智能调节</li>
@@ -101,10 +139,10 @@
   </div>
 
   <!-- 中等型号 -->
-  <div class="product">
+  <div class="product" onclick="openVideo('video2.mp4')">
     <img src="B1.jpg" alt="中等型号">
     <div class="product-info">
-      <h2>中等型号</h2>
+      <h2>NORMAL VERSION-CHARGE</h2>
       <ul>
         <li>12马力经济型发动机</li>
         <li>刀盘三档手动调节</li>
@@ -115,23 +153,42 @@
     </div>
   </div>
 
-  <!-- 普通型号 -->
-  <div class="product">
-    <img src="B1.jpg" alt="普通型号">
-    <div class="product-info">
-      <h2>普通型号</h2>
-      <ul>
-        <li>7马力入门级发动机</li>
-        <li>固定刀盘高度</li>
-        <li>适合平坦小面积草坪</li>
-        <li>轻量化设计，易搬运</li>
-        <li>简单遥控功能</li>
-      </ul>
-    </div>
-  </div>
-
   <a class="back-button" href="index.html">← 返回总览</a>
 </div>
+
+<!-- 视频弹窗 -->
+<div id="videoModal" onclick="closeVideo(event)">
+  <div class="close-btn" onclick="closeVideo(event)">&times;</div>
+  <video id="videoPlayer" controls>
+    <source src="" type="video/mp4">
+    你的浏览器不支持视频播放。
+  </video>
+</div>
+
+<script>
+  function openVideo(src) {
+    const modal = document.getElementById('videoModal');
+    const video = document.getElementById('videoPlayer');
+    video.src = src;
+    video.load();
+    video.play();
+    modal.classList.add('active');
+  }
+
+  function closeVideo(event) {
+    event.stopPropagation();
+    const modal = document.getElementById('videoModal');
+    const video = document.getElementById('videoPlayer');
+    video.pause();
+    video.currentTime = 0;
+    modal.classList.remove('active');
+  }
+
+  // 防止点击视频本身关闭弹窗
+  document.getElementById('videoPlayer').addEventListener('click', function(e) {
+    e.stopPropagation();
+  });
+</script>
 
 </body>
 </html>
