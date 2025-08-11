@@ -7,24 +7,63 @@
 <style>
   body { font-family: Arial, sans-serif; background: #f9f9f9; padding: 20px; }
   h1 { text-align: center; color: #333; }
+
+  .series {
+    margin-bottom: 40px;
+  }
+  .series-title {
+    font-size: 1.5rem;
+    margin-bottom: 15px;
+    padding-left: 10px;
+    border-left: 5px solid #007BFF;
+    color: #007BFF;
+    text-align: center;
+  }
+
   .product-list {
-    display: flex;
-    flex-direction: column;
-    gap: 20px;
     max-width: 960px;
-    margin: 20px auto;
+    margin: 0 auto;
   }
+
   .product-row {
-    display: grid;
+    display: flex;
     gap: 20px;
+    justify-content: flex-start; /* 左右对齐靠左 */
+    flex-wrap: nowrap; /* 不换行，保持一行 */
   }
-  .row-3 {
-    grid-template-columns: repeat(3, 1fr);
+
+  /* 系列1：一排2个 */
+  .series-1 .product-row {
+    flex-wrap: nowrap;
   }
-  .row-2 {
-    grid-template-columns: repeat(2, 1fr);
-    justify-content: center;
+  .series-1 .product-item {
+    flex: 1 1 calc(50% - 10px);
+    max-width: calc(50% - 10px);
   }
+
+  /* 系列2：两排，每排2个 */
+  .series-2 .product-row {
+    flex-wrap: nowrap;
+    margin-bottom: 20px;
+  }
+  .series-2 .product-item {
+    flex: 1 1 calc(50% - 10px);
+    max-width: calc(50% - 10px);
+  }
+  /* 最后一排底部不加 margin */
+  .series-2 .product-row:last-child {
+    margin-bottom: 0;
+  }
+
+  /* 系列3：一排3个 */
+  .series-3 .product-row {
+    flex-wrap: nowrap;
+  }
+  .series-3 .product-item {
+    flex: 1 1 calc(33.333% - 13.333px);
+    max-width: calc(33.333% - 13.333px);
+  }
+
   .product-item {
     background: #fff;
     border-radius: 8px;
@@ -50,13 +89,17 @@
     color: #007BFF;
   }
 
-  /* 手机端：全部改成一列，方便上下滑动 */
+  /* 手机布局：全部单列 */
   @media (max-width: 768px) {
-    .row-3, .row-2 {
-      grid-template-columns: 1fr; /* 单列 */
+    .product-row {
+      flex-wrap: wrap !important;
+      flex-direction: column !important;
+      justify-content: center !important;
     }
-    .product-item img {
-      height: auto; /* 高度自动适应屏幕 */
+    .product-item {
+      flex: 1 1 100% !important;
+      max-width: 100% !important;
+      margin-bottom: 20px;
     }
   }
 </style>
@@ -65,32 +108,67 @@
 
 <h1>遥控割草机产品总览</h1>
 
-<div class="product-list">
-  <!-- 第一行 3 个 -->
-  <div class="product-row row-3">
-    <div class="product-item" onclick="location.href='u1.html'">
-      <img src="A1.jpg" alt="遥控割草机A" />
-      <div class="product-name">7.5马力</div>
-    </div>
-    <div class="product-item" onclick="location.href='u2.html'">
-      <img src="B1.jpg" alt="遥控割草机B" />
-      <div class="product-name">9马力</div>
-    </div>
-    <div class="product-item" onclick="location.href='u3.html'">
-      <img src="C1.jpg" alt="遥控割草机C" />
-      <div class="product-name">16马力</div>
+<!-- 系列 1 -->
+<div class="series series-1">
+  <div class="series-title">4X4 ROBOTIC LAWN MOWER</div>
+  <div class="product-list">
+    <div class="product-row">
+      <div class="product-item" onclick="location.href='u1.html'">
+        <img src="A1.jpg" alt="">
+        <div class="product-name">1）（7.5HP）4X4 ROBOTIC LAWN MOWER</div>
+      </div>
+      <div class="product-item" onclick="location.href='u2.html'">
+        <img src="A1.jpg" alt="">
+        <div class="product-name">1）（9.0HP）4X4 ROBOTIC LAWN MOWER</div>
+      </div>
     </div>
   </div>
+</div>
 
-  <!-- 第二行 2 个 -->
-  <div class="product-row row-2">
-    <div class="product-item" onclick="location.href='u4.html'">
-      <img src="D1.jpg" alt="遥控割草机D" />
-      <div class="product-name">22马力</div>
+<!-- 系列 2 -->
+<div class="series series-2">
+  <div class="series-title">ROBOTIC LAWN MOWER</div>
+  <div class="product-list">
+    <div class="product-row">
+      <div class="product-item" onclick="location.href='u3.html'">
+        <img src="B1.jpg" alt="">
+        <div class="product-name">2）（7.5 HP）ROBOTIC LAWN MOWER</div>
+      </div>
+      <div class="product-item" onclick="location.href='u4.html'">
+        <img src="B1.jpg" alt="">
+        <div class="product-name">2）（9.0 HP）ROBOTIC LAWN MOWER</div>
+      </div>
     </div>
-    <div class="product-item" onclick="location.href='u5.html'">
-      <img src="E1.jpg" alt="遥控割草机E" />
-      <div class="product-name">27马力</div>
+    <div class="product-row">
+      <div class="product-item" onclick="location.href='u5.html'">
+        <img src="B1.jpg" alt="">
+        <div class="product-name">2）（16.0HP）ROBOTIC LAWN MOWER</div>
+      </div>
+      <div class="product-item" onclick="location.href='u6.html'">
+        <img src="B1.jpg" alt="">
+        <div class="product-name">2）（22.0HP）ROBOTIC LAWN MOWER</div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- 系列 3 -->
+<div class="series series-3">
+  <div class="series-title">TANK SERIES</div>
+  <div class="product-list">
+    <div class="product-row">
+      <div class="product-item" onclick="location.href='u7.html'">
+        <img src="C1.jpg" alt="">
+        <div class="product-name">3）（16.0HP TANK SERIES）</div>
+      </div>
+      <div class="product-item" onclick="location.href='u8.html'">
+        <img src="C1.jpg" alt="">
+        <div class="product-name">3）（22.0HP TANK SERIES）</div>
+      </div>
+      <div class="product-item" onclick="location.href='u9.html'">
+        <img src="C1.jpg" alt="">
+        <div class="product-name">3）（27.0HP TANK SERIES）</div>
+      </div>
     </div>
   </div>
 </div>
