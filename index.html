@@ -12,17 +12,53 @@
     margin: 0;
   }
 
-  /* 顶部导航栏，只显示文字居中 */
+  /* 顶部导航栏：黑色背景 + 动态渐变文字 */
   header {
-    background-color: #000; /* 黑色背景 */
-    padding: 10px 20px;
+    background-color: #000;
+    padding: 20px;
     text-align: center;
   }
   header .brand {
     font-weight: bold;
-    font-size: 10rem;
-    color: #d50000; /* 鲜艳红色 */
+    font-size: 4rem;
+    background: linear-gradient(90deg, #ff0000, #ff4d4d, #ff0000);
+    background-size: 200% auto;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    text-shadow: 0 0 10px rgba(255,0,0,0.6),
+                 0 0 20px rgba(255,0,0,0.4),
+                 0 0 30px rgba(255,0,0,0.2);
     user-select: none;
+    letter-spacing: 4px;
+    animation: glow 2s ease-in-out infinite, gradient-move 3s linear infinite;
+  }
+
+  /* 渐变流动 */
+  @keyframes gradient-move {
+    0% { background-position: 0% 50%; }
+    100% { background-position: 200% 50%; }
+  }
+
+  /* 发光闪烁 */
+  @keyframes glow {
+    0%, 100% {
+      text-shadow: 0 0 10px rgba(255,0,0,0.6),
+                   0 0 20px rgba(255,0,0,0.4),
+                   0 0 30px rgba(255,0,0,0.2);
+    }
+    50% {
+      text-shadow: 0 0 20px rgba(255,50,50,0.8),
+                   0 0 30px rgba(255,50,50,0.6),
+                   0 0 40px rgba(255,50,50,0.4);
+    }
+  }
+
+  /* 手机端 LOGO 缩放 */
+  @media (max-width: 768px) {
+    header .brand {
+      font-size: 2.5rem;
+      letter-spacing: 2px;
+    }
   }
 
   /* 标题上方图片 */
@@ -32,6 +68,7 @@
     width: 100%;
     height: auto;
     margin: 30px auto 10px auto;
+    border-radius: 10px;
   }
 
   h1 {
@@ -39,6 +76,8 @@
     color: #333;
     margin-top: 0;
     margin-bottom: 40px;
+    font-size: 2rem;
+    font-weight: bold;
   }
 
   .series {
@@ -48,8 +87,8 @@
     font-size: 1.5rem;
     margin-bottom: 15px;
     padding-left: 10px;
-    border-left: 5px solid #d50000; /* 红色边框 */
-    color: #d50000; /* 红色文字 */
+    border-left: 5px solid #d50000;
+    color: #d50000;
     text-align: center;
   }
 
@@ -61,35 +100,18 @@
   .product-row {
     display: flex;
     gap: 20px;
-    justify-content: flex-start; /* 左对齐 */
-    flex-wrap: nowrap; /* 不换行 */
-  }
-
-  /* 系列1：一排2个 */
-  .series-1 .product-row {
+    justify-content: flex-start;
     flex-wrap: nowrap;
   }
+
+  /* 系列布局 */
   .series-1 .product-item {
     flex: 1 1 calc(50% - 10px);
     max-width: calc(50% - 10px);
   }
-
-  /* 系列2：两排，每排2个 */
-  .series-2 .product-row {
-    flex-wrap: nowrap;
-    margin-bottom: 20px;
-  }
   .series-2 .product-item {
     flex: 1 1 calc(50% - 10px);
     max-width: calc(50% - 10px);
-  }
-  .series-2 .product-row:last-child {
-    margin-bottom: 0;
-  }
-
-  /* 系列3：一排3个 */
-  .series-3 .product-row {
-    flex-wrap: nowrap;
   }
   .series-3 .product-item {
     flex: 1 1 calc(33.333% - 13.333px);
@@ -118,10 +140,10 @@
     margin-top: 12px;
     font-weight: bold;
     font-size: 18px;
-    color: #d50000; /* 红色字体 */
+    color: #d50000;
   }
 
-  /* 手机布局：全部单列 */
+  /* 手机布局 */
   @media (max-width: 768px) {
     .product-row {
       flex-wrap: wrap !important;
@@ -142,9 +164,10 @@
   <div class="brand">HSH</div>
 </header>
 
-<!-- 这里加标题上方图片 -->
-<!--<img src="logo.jpg" alt="标题上方图片" class="above-title-img" />-->
+<!-- 主标题上方图片 -->
+<!-- <img src="top-photo.jpg" alt="顶部照片" class="above-title-img" />-->
 
+<!-- 主标题 -->
 <h1></h1>
 
 <!-- 系列 1 -->
@@ -153,11 +176,11 @@
   <div class="product-list">
     <div class="product-row">
       <div class="product-item" onclick="location.href='u1.html'">
-        <img src="7.5hp medium.jpg" alt="">
+        <img src="11.jpg" alt="">
         <div class="product-name">7.5HP</div>
       </div>
       <div class="product-item" onclick="location.href='u2.html'">
-        <img src="7.5hp medium.jpg" alt="">
+        <img src="11.jpg" alt="">
         <div class="product-name">9.0HP</div>
       </div>
     </div>
@@ -214,4 +237,3 @@
 
 </body>
 </html>
-
