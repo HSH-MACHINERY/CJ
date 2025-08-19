@@ -1,9 +1,9 @@
 <!DOCTYPE html>
 <html lang="zh">
 <head>
-<meta charset="UTF-8" />
-<meta name="viewport" content="width=device-width, initial-scale=1" />
-<title>遥控割草机 - 三档型号介绍（点击图片弹视频）</title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>遥控割草机 - 两列展示</title>
 <style>
   body {
     font-family: Arial, sans-serif;
@@ -11,100 +11,117 @@
     margin: 0;
     padding: 20px;
   }
+
   .container {
     max-width: 1000px;
     margin: auto;
   }
+
   h1 {
     text-align: center;
-    color: #d50000; /* 红色 */
+    color: #d50000;
     margin-bottom: 30px;
   }
-  .product {
-    display: flex;
-    align-items: flex-start;
-    background: #fff;
+
+  /* 白色表格 */
+  table.info-table {
+    width: 100%;
+    border-collapse: separate;
+    border-spacing: 0;
+    background-color: #fff;
     border-radius: 8px;
     box-shadow: 0 2px 6px rgba(0,0,0,0.1);
-    margin-bottom: 20px;
-    padding: 20px;
-    gap: 20px;
-    cursor: pointer;
+    margin-bottom: 30px;
+    overflow: hidden;
   }
+  table.info-table td {
+    padding: 15px 10px;
+    vertical-align: top;
+  }
+  table.info-table tr:nth-child(even) {
+    background-color: #f9f9f9;
+  }
+  table.info-table td strong {
+    color: #333;
+  }
+
+  /* 产品左右两列 */
+  .product-row {
+    display: flex;
+    gap: 20px;
+    justify-content: space-between;
+    flex-wrap: nowrap;
+    margin-bottom: 30px;
+  }
+
+  .product {
+    flex: 1 1 48%;
+    text-align: center;
+    background: #fff;
+    border-radius: 8px;
+    padding: 20px;
+    cursor: pointer;
+    box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+  }
+
   .product img {
-    width: 280px;
+    width: 100%;
+    max-width: 300px;
     height: auto;
-    object-fit: contain;
+    margin-bottom: 10px;
     border-radius: 8px;
   }
-  .product-info {
-    flex: 1;
-  }
+
   .product-info h2 {
-    margin-top: 0;
-    color: #333; /* 黑色 */
-    margin-bottom: 10px;
+    margin: 0;
+    color: #333;
   }
-  .product-info ul {
-    list-style: disc;
-    padding-left: 20px;
-    color: #333; /* 黑色，改回来 */
-  }
+
   .back-button {
     display: block;
     width: fit-content;
     margin: 40px auto 0;
     padding: 10px 20px;
-    background: #d50000; /* 红色背景 */
+    background: #d50000;
     color: white;
     text-decoration: none;
     border-radius: 6px;
-    transition: background 0.3s ease;
     text-align: center;
   }
   .back-button:hover {
-    background: #a00000; /* 深红 */
+    background: #a00000;
   }
-  /* 手机端响应式 */
+
   @media (max-width: 768px) {
+    .product-row {
+      flex-wrap: wrap;
+    }
     .product {
-      flex-direction: column;
-      align-items: center;
-      text-align: center;
-    }
-    .product img {
-      width: 100%;
-      max-width: 400px;
-    }
-    .product-info ul {
-      text-align: left;
+      flex: 1 1 100%;
+      margin-bottom: 20px;
     }
   }
 
-  /* 弹窗样式 */
+  /* 视频弹窗 */
   #videoModal {
-    display: none; /* 默认隐藏 */
+    display: none;
     position: fixed;
-    top: 0; left: 0; right: 0; bottom: 0;
+    top:0; left:0; right:0; bottom:0;
     background: rgba(0,0,0,0.7);
     justify-content: center;
     align-items: center;
     z-index: 1000;
   }
-  #videoModal.active {
-    display: flex;
-  }
+  #videoModal.active { display: flex; }
   #videoModal video {
     max-width: 90%;
     max-height: 80%;
     border-radius: 8px;
-    box-shadow: 0 0 15px rgba(0,0,0,0.5);
     background: #000;
   }
   #videoModal .close-btn {
     position: absolute;
-    top: 30px;
-    right: 30px;
+    top: 30px; right: 30px;
     font-size: 30px;
     color: white;
     cursor: pointer;
@@ -121,112 +138,46 @@
 <body>
 
 <div class="container">
-  <h1>（7.5HP）4X4 ROBOTIC LAWM MOWER</h1>
-  
-<!-- 详细介绍区块 -->
-<style>
-  body {
-    font-family: Arial, sans-serif;
-    background: #f4f4f4;
-    padding: 15px;
-  }
+  <h1>（7.5HP）4X4 ROBOTIC LAWN MOWER</h1>
 
-  .product-table {
-    width: 100%;
-    max-width: 800px;
-    margin: 0 auto;
-    border-collapse: collapse;
-    background: #fff;
-    border-radius: 10px;
-    overflow: hidden;
-    box-shadow: 0 5px 12px rgba(0,0,0,0.1);
-  }
+  <!-- 白色表格 -->
+  <table class="info-table">
+    <tr>
+      <td><strong>马力 Power / Kuasa</strong></td>
+      <td>7.5HP</td>
+    </tr>
+    <tr>
+      <td><strong>适合地形 Terrain Sesuai / Suitable Terrain</strong></td>
+      <td>
+        平地、园区道路、草坪<br>
+        Tanah rata, jalan kebun, padang rumput<br>
+        Flat land, garden roads, lawns
+      </td>
+    </tr>
+    <tr>
+      <td><strong>特点 / Ciri / Features</strong></td>
+      <td>
+        ✅ 操作稳定、安全 / Stabil & selamat / Stable & safe<br>
+        ✅ 省油、维护简单 / Jimat minyak, mudah diselenggara / Fuel saving, easy maintenance<br>
+        ✅ 长时间平地作业最佳 / Sesuai untuk kerja lama di tanah rata / Best for long hours on flat land
+      </td>
+    </tr>
+  </table>
 
-  .product-table th {
-    background-color: #f0f0f0;
-    text-align: center;
-    padding: 12px;
-    font-size: 18px;
-  }
-
-  .product-table td {
-    padding: 10px 12px;
-    border-bottom: 1px solid #ddd;
-    vertical-align: top;
-  }
-
-  .check {
-    color: green;
-    font-weight: bold;
-    margin-right: 5px;
-  }
-
-  /* 手机响应式 */
-  @media (max-width: 600px) {
-    .product-table td, .product-table th {
-      padding: 8px;
-      font-size: 14px;
-    }
-  }
-</style>
-
-<table class="product-table">
-  <tr>
-    <th colspan="2">4X4 ROBOTIC LAWN MOWER</th>
-  </tr>
-
-  <tr>
-    <td><strong>马力 Power / Kuasa</strong></td>
-    <td>7.5HP / 9HP</td>
-  </tr>
-
-  <tr>
-    <td><strong>适合地形 Terrain Sesuai / Suitable Terrain</strong></td>
-    <td>
-      平地、园区道路、草坪<br>
-      Tanah rata, jalan kebun, padang rumput<br>
-      Flat land, garden roads, lawns
-    </td>
-  </tr>
-
-  <tr>
-    <td><strong>特点 / Ciri / Features</strong></td>
-    <td>
-      ✅ 操作稳定、安全 / Stabil & selamat / Stable & safe<br>
-      ✅ 省油、维护简单 / Jimat minyak, mudah diselenggara / Fuel saving, easy maintenance<br>
-      ✅ 长时间平地作业最佳 / Sesuai untuk kerja lama di tanah rata / Best for long hours on flat land
-    </td>
-  </tr>
-</table>
-
-
-  <!-- 高等型号 -->
-  <div class="product" onclick="openVideo('video1.mp4')">
-    <img src="B1.jpg" alt="高等型号">
-    <div class="product-info">
-      <h2>MEDIUM VERSION-ALTORNATOR</h2>
-      <ul>
-        <li>20马力高性能发动机</li>
-        <li>刀盘高度智能调节</li>
-        <li>全地形履带+四轮混合驱动</li>
-        <li>360°全方位遥控</li>
-        <li>自动避障+GPS巡航</li>
-      </ul>
+  <!-- 产品左右两列 -->
+  <div class="product-row">
+    <div class="product" onclick="openVideo('video1.mp4')">
+      <img src="B1.jpg" alt="MEDIUM VERSION-ALTORNATOR">
+      <div class="product-info">
+        <h2>MEDIUM VERSION-ALTORNATOR</h2>
+      </div>
     </div>
-  </div>
 
-  <!-- 中等型号 -->
-  <div class="product" onclick="openVideo('video2.mp4')">
-    <img src="B1.jpg" alt="中等型号">
-    <div class="product-info">
-      <h2>NORMAL VERSION-CHARGE</h2>
-      <ul>
-        <li>12马力经济型发动机</li>
-        <li>刀盘三档手动调节</li>
-        <li>四轮驱动，适合中等面积草坪</li>
-        <li>前进/后退 + 定速功能</li>
-        <li>耐用钢制刀片</li>
-      </ul>
+    <div class="product" onclick="openVideo('video2.mp4')">
+      <img src="B2.jpg" alt="NORMAL VERSION-CHARGE">
+      <div class="product-info">
+        <h2>NORMAL VERSION-CHARGE</h2>
+      </div>
     </div>
   </div>
 
@@ -242,4 +193,24 @@
   </video>
 </div>
 
-<scr
+<script>
+function openVideo(src) {
+  const modal = document.getElementById('videoModal');
+  const player = document.getElementById('videoPlayer');
+  player.src = src;
+  modal.classList.add('active');
+}
+
+function closeVideo(e) {
+  if(e.target.id === 'videoModal' || e.target.classList.contains('close-btn')) {
+    const modal = document.getElementById('videoModal');
+    const player = document.getElementById('videoPlayer');
+    player.pause();
+    player.src = '';
+    modal.classList.remove('active');
+  }
+}
+</script>
+
+</body>
+</html>
