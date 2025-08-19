@@ -17,7 +17,7 @@
   }
   h1 {
     text-align: center;
-    color: #007BFF;
+    color: #d50000; /* 红色 */
     margin-bottom: 30px;
   }
   .product {
@@ -42,20 +42,20 @@
   }
   .product-info h2 {
     margin-top: 0;
-    color: #333;
+    color: #333; /* 黑色 */
     margin-bottom: 10px;
   }
   .product-info ul {
     list-style: disc;
     padding-left: 20px;
-    color: #555;
+    color: #333; /* 黑色，改回来 */
   }
   .back-button {
     display: block;
     width: fit-content;
     margin: 40px auto 0;
     padding: 10px 20px;
-    background: #007BFF;
+    background: #d50000; /* 红色背景 */
     color: white;
     text-decoration: none;
     border-radius: 6px;
@@ -63,7 +63,7 @@
     text-align: center;
   }
   .back-button:hover {
-    background: #0056b3;
+    background: #a00000; /* 深红 */
   }
   /* 手机端响应式 */
   @media (max-width: 768px) {
@@ -121,7 +121,84 @@
 <body>
 
 <div class="container">
-  <h1>遥控割草机 两种型号介绍</h1>
+  <h1>（7.5HP）4X4 ROBOTIC LAWM MOWER</h1>
+  
+<!-- 详细介绍区块 -->
+<style>
+  body {
+    font-family: Arial, sans-serif;
+    background: #f4f4f4;
+    padding: 15px;
+  }
+
+  .product-table {
+    width: 100%;
+    max-width: 800px;
+    margin: 0 auto;
+    border-collapse: collapse;
+    background: #fff;
+    border-radius: 10px;
+    overflow: hidden;
+    box-shadow: 0 5px 12px rgba(0,0,0,0.1);
+  }
+
+  .product-table th {
+    background-color: #f0f0f0;
+    text-align: center;
+    padding: 12px;
+    font-size: 18px;
+  }
+
+  .product-table td {
+    padding: 10px 12px;
+    border-bottom: 1px solid #ddd;
+    vertical-align: top;
+  }
+
+  .check {
+    color: green;
+    font-weight: bold;
+    margin-right: 5px;
+  }
+
+  /* 手机响应式 */
+  @media (max-width: 600px) {
+    .product-table td, .product-table th {
+      padding: 8px;
+      font-size: 14px;
+    }
+  }
+</style>
+
+<table class="product-table">
+  <tr>
+    <th colspan="2">4X4 ROBOTIC LAWN MOWER</th>
+  </tr>
+
+  <tr>
+    <td><strong>马力 Power / Kuasa</strong></td>
+    <td>7.5HP / 9HP</td>
+  </tr>
+
+  <tr>
+    <td><strong>适合地形 Terrain Sesuai / Suitable Terrain</strong></td>
+    <td>
+      平地、园区道路、草坪<br>
+      Tanah rata, jalan kebun, padang rumput<br>
+      Flat land, garden roads, lawns
+    </td>
+  </tr>
+
+  <tr>
+    <td><strong>特点 / Ciri / Features</strong></td>
+    <td>
+      ✅ 操作稳定、安全 / Stabil & selamat / Stable & safe<br>
+      ✅ 省油、维护简单 / Jimat minyak, mudah diselenggara / Fuel saving, easy maintenance<br>
+      ✅ 长时间平地作业最佳 / Sesuai untuk kerja lama di tanah rata / Best for long hours on flat land
+    </td>
+  </tr>
+</table>
+
 
   <!-- 高等型号 -->
   <div class="product" onclick="openVideo('video1.mp4')">
@@ -165,30 +242,4 @@
   </video>
 </div>
 
-<script>
-  function openVideo(src) {
-    const modal = document.getElementById('videoModal');
-    const video = document.getElementById('videoPlayer');
-    video.src = src;
-    video.load();
-    video.play();
-    modal.classList.add('active');
-  }
-
-  function closeVideo(event) {
-    event.stopPropagation();
-    const modal = document.getElementById('videoModal');
-    const video = document.getElementById('videoPlayer');
-    video.pause();
-    video.currentTime = 0;
-    modal.classList.remove('active');
-  }
-
-  // 防止点击视频本身关闭弹窗
-  document.getElementById('videoPlayer').addEventListener('click', function(e) {
-    e.stopPropagation();
-  });
-</script>
-
-</body>
-</html>
+<scr
