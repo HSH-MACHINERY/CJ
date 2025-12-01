@@ -3,7 +3,8 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>遥控割草机 - 三列展示</title>
+<title>遥控割草机 - 四列展示</title>
+
 <style>
   body {
     font-family: Arial, sans-serif;
@@ -13,7 +14,7 @@
   }
 
   .container {
-    max-width: 1200px;
+    max-width: 1400px;
     margin: auto;
   }
 
@@ -45,17 +46,17 @@
     color: #333;
   }
 
-  /* 产品三列 */
+  /* 产品四列 */
   .product-row {
     display: flex;
-    flex-wrap: nowrap; /* 桌面不换行 */
+    flex-wrap: nowrap;      /* 桌面不换行：4 个在同一行 */
     gap: 20px;
     justify-content: space-between;
     margin-bottom: 30px;
   }
 
   .product {
-    flex: 0 0 calc(33.333% - 13.33px); /* 三列等宽 */
+    flex: 0 0 calc(25% - 15px); /* 4列等宽 */
     text-align: center;
     background: #fff;
     border-radius: 8px;
@@ -64,6 +65,7 @@
     box-shadow: 0 2px 6px rgba(0,0,0,0.1);
     transition: transform 0.2s;
   }
+
   .product:hover {
     transform: translateY(-5px);
   }
@@ -81,6 +83,7 @@
     color: #333;
   }
 
+  /* 返回按钮 */
   .back-button {
     display: block;
     width: fit-content;
@@ -96,14 +99,22 @@
     background: #a00000;
   }
 
-  /* 响应式 */
+  /* 平板：2 列 */
   @media (max-width: 1024px) {
-    .product { flex: 0 0 calc(50% - 10px); } /* 平板两列 */
+    .product {
+      flex: 0 0 calc(50% - 10px);
+    }
   }
 
+  /* 手机：1 列 */
   @media (max-width: 768px) {
-    .product-row { flex-wrap: wrap; }
-    .product { flex: 1 1 100%; margin-bottom: 20px; } /* 手机单列 */
+    .product-row {
+      flex-wrap: wrap;
+    }
+    .product {
+      flex: 0 0 100%;
+      margin-bottom: 20px;
+    }
   }
 
   /* 视频弹窗 */
@@ -116,7 +127,9 @@
     align-items: center;
     z-index: 1000;
   }
-  #videoModal.active { display: flex; }
+  #videoModal.active {
+    display: flex;
+  }
   #videoModal video {
     max-width: 90%;
     max-height: 80%;
@@ -139,13 +152,14 @@
   }
 </style>
 </head>
+
 <body>
 
 <div class="container">
   <h1>ROBOTIC LAWN MOWER</h1>
   
   <!-- 白色表格（特点） -->
-  <table class="info-table"> 
+  <table class="info-table">
     <tr>
       <td><strong>适合地形 Terrain Sesuai / Suitable Terrain</strong></td>
       <td>
@@ -157,9 +171,9 @@
     <tr>
       <td><strong>特点 / Ciri / Features</strong></td>
       <td>
-        ✅ 抓地力强，不易打滑 / Cengkaman kuat, tidak mudah tergelincir / Strong grip, less slipping<br>
-        ✅ 适合复杂 & 不平地形 / Sesuai untuk tanah tidak rata & kompleks / Ideal for rough & uneven terrain<br>
-        ✅ 多种动力选择，适合不同规模 / Banyak pilihan kuasa untuk pelbagai kegunaan / Multiple power options for different scales
+        ✅ 抓地力强，不易打滑<br>
+        ✅ 适合复杂 & 不平地形<br>
+        ✅ 多种动力选择，适合不同规模
       </td>
     </tr>
   </table>
@@ -167,21 +181,27 @@
   <!-- 白色表格（参数表） -->
   <table class="info-table">
     <tr><td><strong>型号 / Model</strong></td><td>HSH 452</td></tr>
-    <tr><td><strong>发动机功率 (马力) / Engine Power (HP) / Kuasa Enjin (HP)</strong></td><td>16HP</td></tr>
-    <tr><td><strong>发动机类型 / Engine Type / Jenis Enjin</strong></td><td>LONCIN</td></tr>
-    <tr><td><strong>割幅宽度 / Cutting Width / Lebar Potongan</strong></td><td>32”</td></tr>
-    <tr><td><strong>割草高度调节范围 / Cutting Height Adjustment / Pelarasan Tinggi Potongan</strong></td><td>20mm-200mm</td></tr>
-    <tr><td><strong>行走方式 / Drive Type / Jenis Gerakan</strong></td><td>Track</td></tr>
-    <tr><td><strong>最大爬坡能力 / Max Climbing Ability / Keupayaan Mendaki Maksimum</strong></td><td>55°</td></tr>
-    <tr><td><strong>油箱容量 / Fuel Tank Capacity / Kapasiti Tangki Minyak</strong></td><td>8L</td></tr>
-    <tr><td><strong>工作效率 / Working Efficiency / Kecekapan Kerja</strong></td><td>2500m³/H</td></tr>
-    <tr><td><strong>遥控距离 / Remote Control Range / Jarak Kawalan Jauh</strong></td><td>200m</td></tr>
-    <tr><td><strong>机器重量 / Machine Weight / Berat Mesin</strong></td><td>276kg</td></tr>
-    <tr><td><strong>外形尺寸 (长×宽×高) / Dimensions (L×W×H) / Dimensi (P×L×H)</strong></td><td>1170 × 1200 × 610 </td></tr>
+    <tr><td><strong>发动机功率 (马力)</strong></td><td>16HP</td></tr>
+    <tr><td><strong>发动机类型 / Engine Type</strong></td><td>LONCIN</td></tr>
+    <tr><td><strong>割幅宽度 / Cutting Width</strong></td><td>32”</td></tr>
+    <tr><td><strong>割草高度调节范围</strong></td><td>20mm-200mm</td></tr>
+    <tr><td><strong>行走方式 / Drive Type</strong></td><td>Track</td></tr>
+    <tr><td><strong>最大爬坡能力</strong></td><td>55°</td></tr>
+    <tr><td><strong>油箱容量</strong></td><td>8L</td></tr>
+    <tr><td><strong>工作效率</strong></td><td>2500m³/H</td></tr>
+    <tr><td><strong>遥控距离</strong></td><td>200m</td></tr>
+    <tr><td><strong>机器重量</strong></td><td>276kg</td></tr>
+    <tr><td><strong>外形尺寸</strong></td><td>1170 × 1200 × 610</td></tr>
   </table>
 
-  <!-- 产品三列 -->
+  <!-- 产品四列 -->
   <div class="product-row">
+
+    <div class="product" onclick="openVideo('video4.mp4')">
+      <img src="images.JPG" alt="ULTIMATE VERSION">
+      <div class="product-info"><h2>ULTIMATE VERSION</h2></div>
+    </div>
+
     <div class="product" onclick="openVideo('video1.mp4')">
       <img src="16hp high robotic.jpg" alt="HIGH VERSION">
       <div class="product-info"><h2>HIGH VERSION</h2></div>
@@ -196,6 +216,7 @@
       <img src="16hp high robotic.jpg" alt="NORMAL VERSION">
       <div class="product-info"><h2>NORMAL VERSION</h2></div>
     </div>
+
   </div>
 
   <a class="back-button" href="index.html">← 返回总览</a>
@@ -219,7 +240,7 @@ function openVideo(src) {
 }
 
 function closeVideo(e) {
-  if(e.target.id === 'videoModal' || e.target.classList.contains('close-btn')) {
+  if (e.target.id === 'videoModal' || e.target.classList.contains('close-btn')) {
     const modal = document.getElementById('videoModal');
     const player = document.getElementById('videoPlayer');
     player.pause();
