@@ -80,9 +80,11 @@
   <div>
     <label for="budget">预算 / Bajet（大概多少钱 / Anggaran Harga）</label>
     <select id="budget" name="budget" class="field">
-      <option value="RM5,800 – RM10,000">RM6,000 – RM10,000</option>
+      <option value="RM20,000 – RM30,000">RM20,000 – RM30,000</option>
       <option value="RM10,000 – RM20,000">RM10,000 – RM20,000</option>
-      <option value="RM20,000 – RM28,500">RM20,000 – RM30,000</option>
+      <option value="RM6,000 – RM10,000">RM6,000 – RM10,000</option>
+     
+      
     </select>
   </div>
 
@@ -153,7 +155,7 @@ document.getElementById('inquiryForm').addEventListener('submit', e=>{
   const area = (data.get('areaSize')||'-') + (data.get('areaUnit')||'');
   const budget = data.get('budget') || '-';
   const notes = data.get('notes') || '-';
-  const message = `草地/地形询问:%0A草况: ${grasses}%0A地形: ${terrains}%0A地方大小: ${area}%0A预算: ${budget}%0A备注: ${notes}`;
+  const message = `草地/地形询问 Borang Pertanyaan Rumput / Bentuk Tanah :%0A草况: ${grasses}%0A地形: ${terrains}%0A地方大小: ${area}%0A预算: ${budget}%0A备注: ${notes}`;
   const phone = '60128696510';
   const url = `https://wa.me/${phone}?text=${message}`;
   window.open(url, '_blank');
