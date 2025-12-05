@@ -27,7 +27,6 @@
   button.secondary{background:#f3f6fb;color:#16324a;border:1px solid #e6eef9}
   .summary{background:#f4f8ff;padding:12px;border-radius:8px;border:1px dashed #d7e9ff;color:#083358}
 
-  /* 手机端优化 */
   @media (max-width:760px){
     .grid{grid-template-columns:1fr}
     .row{flex-direction:column;gap:8px}
@@ -48,8 +47,8 @@
   <div>
     <label for="grassCondition">草况 / Keadaan Rumput（可多选 / Pilihan Pelbagai）</label>
     <div class="field options" id="grassCondition">
-      <label class="option"><input type="checkbox" name="grass" value="厚"> 厚 (Tebal / Thick)</label>
-      <label class="option"><input type="checkbox" name="grass" value="薄"> 薄 (Nipis / Thin)</label>
+      <label class="option"><input type="checkbox" name="grass" value="厚 (Tebal)"> 厚 (Tebal)</label>
+      <label class="option"><input type="checkbox" name="grass" value="薄 (Nipis)"> 薄 (Nipis)</label>
       <label class="option"><input type="checkbox" name="grass" value="树枝多 (Banyak Ranting)"> 树枝多 (Banyak Ranting)</label>
     </div>
   </div>
@@ -70,7 +69,7 @@
     <div class="row">
       <input id="areaSize" name="areaSize" class="field" type="number" min="0" step="0.1" placeholder="数值 / Nombor">
       <select id="areaUnit" name="areaUnit" class="field" style="min-width:120px">
-        <option value="EKAR">EKAR</option>
+        <option value=" - EKAR"> EKAR</option>
       </select>
     </div>
     <p class="muted">请填写面积数字并选择单位（若不确定，可估算）。</p>
@@ -85,14 +84,6 @@
       <option value="RM10,000 – RM20,000">RM10,000 – RM20,000</option>
       <option value="RM20,000 – RM28,500">RM20,000 – RM30,000</option>
     </select>
-  </div>
-
-  <!-- 图片上传 -->
-  <div class="full">
-    <label for="photos">上传现场照片（选填 / Muat Naik Gambar）</label>
-    <input id="photos" name="photos" type="file" accept="image/*" multiple class="field">
-    <p class="muted">多角度拍摄草地与周边障碍，有助于更准确推荐适合的机器。</p>
-    <p class="muted">Ambil gambar rumput dan halangan sekeliling dari pelbagai sudut untuk membolehkan cadangan mesin yang lebih tepat.</p>
   </div>
 
   <!-- 备注 -->
@@ -138,14 +129,15 @@ document.getElementById('previewBtn').addEventListener('click', ()=>{
   const area = (data.get('areaSize')||'-') + (data.get('areaUnit')||'');
   const budget = data.get('budget') || '-';
   const notes = data.get('notes') || '-';
+
   const summary = `
     <div class="summary">
       <strong>预览摘要 / Pratonton</strong>
-      <div>草况 / Keadaan Rumput：${grasses}</div>
-      <div>地形 / Bentuk Tanah：${terrains}</div>
-      <div>地方大小 / Saiz Kawasan：${area}</div>
-      <div>预算 / Bajet：${budget}</div>
-      <div>备注 / Nota Tambahan：${notes}</div>
+      <div><strong>草况 / Keadaan Rumput：</strong> ${grasses}</div>
+      <div><strong>地形 / Bentuk Tanah：</strong> ${terrains}</div>
+      <div><strong>地方大小 / Saiz Kawasan：</strong> ${area}</div>
+      <div><strong>预算 / Bajet：</strong> ${budget}</div>
+      <div><strong>备注 / Nota Tambahan：</strong> ${notes}</div>
     </div>
   `;
   document.getElementById('result').innerHTML = summary;
@@ -162,7 +154,7 @@ document.getElementById('inquiryForm').addEventListener('submit', e=>{
   const budget = data.get('budget') || '-';
   const notes = data.get('notes') || '-';
   const message = `草地/地形询问:%0A草况: ${grasses}%0A地形: ${terrains}%0A地方大小: ${area}%0A预算: ${budget}%0A备注: ${notes}`;
-  const phone = '60127422858';
+  const phone = '60128696510';
   const url = `https://wa.me/${phone}?text=${message}`;
   window.open(url, '_blank');
 });
